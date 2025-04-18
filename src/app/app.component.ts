@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RsvpFormComponent } from './components/rsvp-form/rsvp-form.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 interface Countdown {
   days: string;
@@ -18,13 +19,12 @@ interface FAQ {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RsvpFormComponent],
+  imports: [CommonModule, RouterOutlet, RsvpFormComponent, HeroComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'wedding-invitation';
-  mobileMenuOpen = false;
   countdown: Countdown = {
     days: '00',
     hours: '00',
@@ -75,10 +75,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.countdownInterval) {
       clearInterval(this.countdownInterval);
     }
-  }
-  
-  toggleMobileMenu() {
-    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
   
   private startCountdown() {
