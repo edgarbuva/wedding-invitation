@@ -1,0 +1,164 @@
+/* Logo styling */
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  text-align: center;
+  
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+/* Menu container */
+.hidden.md\:flex {
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+}
+
+/* Menu sections */
+.menu-section {
+  display: flex;
+  align-items: center;
+  
+  &:first-child {
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
+  
+  &:last-child {
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+}
+
+/* Navigation links */
+.nav-link {
+  color: #888888;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+  
+  &:hover, &.active {
+    color: var(--text-color);
+  }
+  
+  &.active {
+    font-weight: 500;
+  }
+}
+
+/* RSVP button */
+.rsvp-button {
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  border-color: var(--text-color);
+  
+  &:hover {
+    background-color: var(--text-color);
+    color: white;
+  }
+}
+
+/* Mobile menu styling */
+.mobile-menu-open {
+  overflow: hidden;
+}
+
+.fixed.inset-0 {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.menu-closing {
+  animation: fadeOutDown 0.3s ease-in forwards !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Mobile menu items animation */
+.mobile-menu-item {
+  opacity: 0;
+  animation: fadeInUpItem 0.5s ease-out forwards;
+  
+  &.active {
+    font-weight: 600;
+  }
+}
+
+.menu-closing .mobile-menu-item {
+  animation: fadeOutDownItem 0.25s ease-in forwards !important;
+}
+
+@keyframes fadeInUpItem {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDownItem {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+/* Mobile menu toggle button */
+.menu-icon {
+  transition: transform 0.3s ease;
+}
+
+button:hover .menu-icon {
+  transform: rotate(90deg);
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .logo {
+    position: static;
+    transform: none;
+  }
+}

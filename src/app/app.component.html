@@ -1,67 +1,18 @@
-<header class="fixed top-0 w-full z-50 bg-white/90 shadow-sm">
-  <div class="container mx-auto py-4 px-6 flex justify-between items-center">
-    <div class="logo text-xl md:text-2xl font-semibold text-center">
-      <span class="font-light">Edgar</span> & <span class="font-light">María</span>
-    </div>
-    <nav class="hidden md:flex space-x-6">
-      <a href="#our-story" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Our Story</a>
-      <a href="#schedule" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Schedule</a>
-      <a href="#location" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Location</a>
-      <a href="#registry" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Registry</a>
-      <a href="#faqs" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">FAQs</a>
-    </nav>
-    <button class="block md:hidden" (click)="toggleMobileMenu()">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-  <!-- Mobile menu -->
-  <div *ngIf="mobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white shadow-md">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex flex-col space-y-3">
-        <a href="#our-story" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Our Story</a>
-        <a href="#schedule" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Schedule</a>
-        <a href="#location" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Location</a>
-        <a href="#registry" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Registry</a>
-        <a href="#faqs" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">FAQs</a>
-      </div>
-    </div>
-  </div>
-</header>
-
 <main>
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('/assets/images/hero-bg.jpg')">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl mb-4 font-light">Edgar & María</h1>
-      <div class="text-2xl md:text-3xl mt-8 mb-12 font-light tracking-widest">
-        14 • 07 • 2025
-      </div>
-      <p class="max-w-lg mx-auto text-lg">Join us as we embark on a journey of love, joy, and eternal happiness.</p>
-      <a href="#rsvp" class="btn btn-outline text-white border-white mt-8 hover:bg-white hover:text-[var(--text-color)]">RSVP</a>
-    </div>
-  </section>
-
-  <!-- Our Story -->
-  <section id="our-story" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl text-center mb-16">Our Story</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <img src="/assets/images/couple.jpg" alt="Edgar and María" class="rounded-lg shadow-lg w-full">
-        </div>
-        <div>
-          <p class="mb-6 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at libero id lectus porta dapibus eu in nibh. Sed nec pellentesque arcu, sit amet volutpat est. Ut feugiat, nisl id rhoncus tempor, nulla purus placerat tellus.</p>
-          <p class="mb-6 text-lg">Proin rhoncus molestie eros ut dapibus. Donec in urna purus. Sed a enim in lorem condimentum volutpat. Integer sit amet fringilla massa. Fusce blandit sem sed arcu tristique, vitae ultricies odio sagittis.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Schedule -->
+  <app-hero 
+    coupleNames="Damaris & Edgar"
+    weddingDate="14 • 07 • 2025"
+    description="ACOMPÁÑANOS EN NUESTRO VIAJE DE AMOR, ALEGRÍA Y FELICIDAD ETERNA."
+    rsvpLink="#rsvp"
+    rsvpButtonText="RSVP"
+    mainPhoto="/assets/images/couple-main.jpg"
+    sidePhotoLeft="/assets/images/couple-side-1.jpg"
+    sidePhotoRight="/assets/images/couple-side-2.jpg">
+  </app-hero>
+<!-- Schedule -->
   <section id="schedule" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-6">Here's a sneak peek of</h2>
       <h3 class="text-3xl text-center mb-16">our special day's schedule</h3>
       
@@ -91,7 +42,7 @@
 
   <!-- Location -->
   <section id="location" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-16">Location</h2>
       
       <div class="max-w-2xl mx-auto text-center mb-12">
@@ -110,7 +61,7 @@
 
   <!-- Registry -->
   <section id="registry" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-16">Registry</h2>
       
       <p class="max-w-2xl mx-auto text-lg mb-12">
@@ -138,7 +89,7 @@
 
   <!-- Dress Code -->
   <section class="section py-16 bg-white">
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-6">Dress Code</h2>
       
       <p class="max-w-2xl mx-auto text-lg">
@@ -149,7 +100,7 @@
 
   <!-- FAQs -->
   <section id="faqs" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-16">FAQs</h2>
       
       <div class="max-w-3xl mx-auto">
@@ -163,7 +114,7 @@
 
   <!-- RSVP -->
   <section id="rsvp" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-16">RSVP</h2>
       <app-rsvp-form></app-rsvp-form>
     </div>
@@ -171,7 +122,7 @@
 
   <!-- Countdown -->
   <section class="section py-20 bg-cover bg-center text-white" style="background-image: url('/assets/images/countdown-bg.jpg')">
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-16">Let the countdown begin</h2>
       
       <div class="grid grid-cols-4 max-w-3xl mx-auto gap-6">
@@ -200,7 +151,7 @@
 </main>
 
 <footer class="py-8 text-center text-sm text-gray-500">
-  <div class="container mx-auto px-6">
+  <div class="container mx-auto">
     <p>DESIGN BY EDGAR & MARÍA</p>
     <p class="mt-2">© 2024 Wedding Invitation</p>
   </div>
