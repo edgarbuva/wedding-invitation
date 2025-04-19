@@ -3,6 +3,31 @@
 /* Importar fuentes elegantes de Google */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
+/* Importar fuentes Silk Serif */
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary-color: #333333;  /* Color principal para elementos activos */
   --secondary-color: #888888; /* Color para elementos inactivos */
@@ -27,6 +52,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 /* Clase de utilidad para fuente serif */
 .font-serif {
   font-family: 'Cormorant Garamond', serif;
+}
+
+/* Clase de utilidad para fuente Silk Serif */
+.font-silk {
+  font-family: 'Silk Serif', serif;
 }
 
 /* Clase de utilidad para fuente sans */

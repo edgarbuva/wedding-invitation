@@ -1,0 +1,17 @@
+<section id="schedule" class="h-screen w-full bg-cover bg-center flex items-center justify-center" [style.background-image]="'url(' + backgroundImage + ')'">
+  <div class="schedule-overlay">
+    <div class="container mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl text-center mb-4 sm:mb-6 text-white font-silk font-light">{{ title }}</h2>
+      <h3 class="text-xl sm:text-2xl md:text-3xl text-center mb-8 sm:mb-16 text-white font-silk font-light">{{ subtitle }}</h3>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-12 max-w-4xl mx-auto">
+        <div *ngFor="let item of scheduleItems" class="text-center">
+          <div class="schedule-item-container">
+            <h4 class="mb-3 font-silk">{{ item.time }}</h4>
+            <p class="uppercase tracking-widest text-lg sm:text-xl">{{ item.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

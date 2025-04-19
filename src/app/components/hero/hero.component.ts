@@ -11,7 +11,7 @@ import { NavigationComponent } from '../navigation/navigation.component';
 })
 export class HeroComponent {
   @Input() backgroundImage: string = '/assets/images/hero-bg.jpg';
-  @Input() coupleNames: string = 'Damaris & Edgar';
+  @Input() coupleNames: string = 'DAMARIS & EDGAR';
   @Input() weddingDate: string = '14 • 07 • 2025';
   @Input() description: string = 'ACOMPÁÑANOS EN NUESTRO VIAJE DE AMOR, ALEGRÍA Y FELICIDAD ETERNA.';
   @Input() rsvpLink: string = '#rsvp';
