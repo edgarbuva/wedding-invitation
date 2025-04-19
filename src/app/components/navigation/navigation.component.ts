@@ -15,7 +15,7 @@ interface MenuItem {
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() coupleNames: string = 'Damaris & Edgar';
+  @Input() coupleNames: string = 'DAMARIS & EDGAR';
   @Input() leftMenuItems: MenuItem[] = [
     { label: 'Travel & Stay', link: '#travel' },
     { label: 'Our Story', link: '#our-story' },

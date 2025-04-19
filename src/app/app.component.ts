@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RsvpFormComponent } from './components/rsvp-form/rsvp-form.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 interface Countdown {
   days: string;
@@ -19,7 +20,7 @@ interface FAQ {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RsvpFormComponent, HeroComponent],
+  imports: [CommonModule, RouterOutlet, RsvpFormComponent, HeroComponent, ScheduleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
