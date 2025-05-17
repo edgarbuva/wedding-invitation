@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
 // Contenedor principal de la sección hero
@@ -24,11 +25,11 @@
   top: 5%;
   left: 0;
   right: 0;
-  transform: translateY(0);
   text-align: center;
   z-index: 20;
   pointer-events: none;
   margin-top: -40px;
+  animation: slideDown 1s ease-out forwards;
   
   @media (min-width: 768px) {
     margin-top: -60px;
@@ -44,19 +45,15 @@
     display: inline-block;
     margin: 0;
     padding: 0;
-    background: none;
-    box-shadow: none;
     border: none;
-    text-shadow: none;
-  }
-  
-  h1.wedding-date.no-bg {
-    background-color: transparent !important;
-    background: none !important;
+    
+    &.no-bg {
+      background: transparent !important;
+    }
   }
 }
 
-// Estilo para las fotos
+// Estilos para las fotos
 .photos-container {
   display: flex;
   flex-direction: column;
@@ -64,94 +61,89 @@
   align-items: center;
   gap: 40px;
   position: relative;
-  padding-top: 0;
   z-index: 10;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  animation: fadeIn 1.5s ease-out 0.5s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
   
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
     gap: 80px;
-    padding-top: 0;
     width: 100%;
     max-width: 1200px;
   }
   
   @media (min-width: 1024px) {
     gap: 90px;
-    max-width: 1200px;
   }
   
   @media (min-width: 1440px) {
     gap: 100px;
-    max-width: 1200px;
   }
+}
+
+// Estilos para las fotos laterales y central
+.side-photo, .center-photo {
+  position: relative;
   
-  .side-photo, .center-photo {
-    position: relative;
-    
-    @media (min-width: 768px) {
-      &.side-photo {
-        width: 20%;
-        max-width: 250px;
-        align-self: center;
-      }
+  @media (min-width: 768px) {
+    &.side-photo {
+      width: 20%;
+      max-width: 250px;
+      align-self: center;
       
-      &.center-photo {
-        width: 35%;
-        max-width: 420px;
-        margin: 0;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      &.side-photo {
-        width: 22%;
-        max-width: 280px;
-      }
-      
-      &.center-photo {
-        width: 38%;
-        max-width: 480px;
-      }
-    }
-    
-    // Contenedores para todas las imágenes sin restricción de aspecto
-    .center-image-container, .side-image-container {
-      position: relative;
-      
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border: none;
-        box-shadow: none;
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          transform: scale(1.02);
-        }
-      }
-    }
-    
-    // Ajuste para que las imágenes laterales estén alineadas horizontalmente
-    @media (min-width: 768px) {
-      &.side-photo .side-image-container {
+      .side-image-container {
         max-height: 380px;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
       }
+    }
+    
+    &.center-photo {
+      width: 35%;
+      max-width: 420px;
+      margin: 0;
       
-      // Limitar tamaño de la imagen central
-      &.center-photo .center-image-container {
+      .center-image-container {
         max-height: 520px;
         overflow: hidden;
       }
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    &.side-photo {
+      width: 22%;
+      max-width: 280px;
+    }
+    
+    &.center-photo {
+      width: 38%;
+      max-width: 480px;
+    }
+  }
+}
+
+// Contenedores de imágenes comunes
+.center-image-container, .side-image-container {
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
     }
   }
 }
@@ -164,10 +156,12 @@
   margin-bottom: 0;
   line-height: 1.8;
   font-size: 14px;
+  animation: fadeIn 1.5s ease-out 1s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
   
   @media (min-width: 768px) {
     margin-top: 1rem;
-    margin-bottom: 0;
   }
 }
 
@@ -179,6 +173,9 @@
   text-transform: uppercase;
   letter-spacing: 0.2em;
   transition: background-color 0.3s, color 0.3s;
+  animation: fadeIn 1.5s ease-out 1.2s forwards;
+  opacity: 0;
+  animation-fill-mode: forwards;
   
   &:hover {
     background-color: var(--text-color);
@@ -186,7 +183,7 @@
   }
 }
 
-// Responsive adjustments
+// Responsive para pantallas pequeñas
 @media (max-width: 768px) {
   .date-display h1.wedding-date {
     font-size: 3rem;
@@ -197,29 +194,16 @@
   }
 }
 
-// Ajustes para pantallas muy pequeñas
 @media (max-width: 480px) {
   .date-display h1.wedding-date {
     font-size: 2.5rem;
   }
 }
 
-// Animaciones de entrada
-.wedding-invitation {
-  animation: fadeIn 1.5s ease-out forwards;
-}
-
+// Animaciones
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.date-display {
-  animation: slideDown 1s ease-out forwards;
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideDown {
@@ -231,23 +215,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.photos-container {
-  animation: fadeIn 1.5s ease-out 0.5s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-.invitation-text {
-  animation: fadeIn 1.5s ease-out 1s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-// Añadir animación para el botón RSVP
-.rsvp-button {
-  animation: fadeIn 1.5s ease-out 1.2s forwards;
-  opacity: 0;
-  animation-fill-mode: forwards;
 }
