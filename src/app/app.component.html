@@ -1,133 +1,50 @@
-<header class="fixed top-0 w-full z-50 bg-white/90 shadow-sm">
-  <div class="container mx-auto py-4 px-6 flex justify-between items-center">
-    <div class="logo text-xl md:text-2xl font-semibold text-center">
-      <span class="font-light">Edgar</span> & <span class="font-light">María</span>
-    </div>
-    <nav class="hidden md:flex space-x-6">
-      <a href="#our-story" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Our Story</a>
-      <a href="#schedule" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Schedule</a>
-      <a href="#location" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Location</a>
-      <a href="#registry" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">Registry</a>
-      <a href="#faqs" class="text-sm uppercase tracking-wider hover:text-[var(--primary-color)]">FAQs</a>
-    </nav>
-    <button class="block md:hidden" (click)="toggleMobileMenu()">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-  <!-- Mobile menu -->
-  <div *ngIf="mobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white shadow-md">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex flex-col space-y-3">
-        <a href="#our-story" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Our Story</a>
-        <a href="#schedule" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Schedule</a>
-        <a href="#location" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Location</a>
-        <a href="#registry" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">Registry</a>
-        <a href="#faqs" class="text-sm uppercase tracking-wider py-2" (click)="toggleMobileMenu()">FAQs</a>
-      </div>
-    </div>
-  </div>
-</header>
-
 <main>
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('/assets/images/hero-bg.jpg')">
-    <div class="container text-center text-white">
-      <h1 class="text-5xl md:text-6xl mb-4 font-light">Edgar & María</h1>
-      <div class="text-2xl md:text-3xl mt-8 mb-12 font-light tracking-widest">
-        14 • 07 • 2025
-      </div>
-      <p class="max-w-lg mx-auto text-lg">Join us as we embark on a journey of love, joy, and eternal happiness.</p>
-      <a href="#rsvp" class="btn btn-outline text-white border-white mt-8 hover:bg-white hover:text-[var(--text-color)]">RSVP</a>
-    </div>
-  </section>
-
-  <!-- Our Story -->
-  <section id="our-story" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl text-center mb-16">Our Story</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <img src="/assets/images/couple.jpg" alt="Edgar and María" class="rounded-lg shadow-lg w-full">
-        </div>
-        <div>
-          <p class="mb-6 text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at libero id lectus porta dapibus eu in nibh. Sed nec pellentesque arcu, sit amet volutpat est. Ut feugiat, nisl id rhoncus tempor, nulla purus placerat tellus.</p>
-          <p class="mb-6 text-lg">Proin rhoncus molestie eros ut dapibus. Donec in urna purus. Sed a enim in lorem condimentum volutpat. Integer sit amet fringilla massa. Fusce blandit sem sed arcu tristique, vitae ultricies odio sagittis.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <app-hero coupleNames="DAMARIS & EDGAR" weddingDate="14 • 06 • 2025"
+    description="ACOMPÁÑANOS EN NUESTRO VIAJE DE AMOR, ALEGRÍA Y FELICIDAD ETERNA." rsvpLink="#rsvp"
+    rsvpButtonText="RSVP" mainPhoto="/assets/images/couple-main.jpg" sidePhotoLeft="/assets/images/couple-side-1.jpg"
+    sidePhotoRight="/assets/images/couple-side-2.jpg"
+    [leftMenuItems]="[
+      { label: 'ITINERARIO', link: '#schedule' },
+      { label: 'UBICACIÓN', link: '#location' }
+    ]"
+    [rightMenuItems]="[
+      { label: 'FAQs', link: '#faqs' }
+    ]">
+  </app-hero>
   <!-- Schedule -->
-  <section id="schedule" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl text-center mb-6">Here's a sneak peek of</h2>
-      <h3 class="text-3xl text-center mb-16">our special day's schedule</h3>
-      
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="text-center">
-          <h4 class="text-2xl mb-2">4:00 PM</h4>
-          <p class="uppercase tracking-widest text-lg">Ceremony</p>
-        </div>
-        
-        <div class="text-center">
-          <h4 class="text-2xl mb-2">5:00 PM</h4>
-          <p class="uppercase tracking-widest text-lg">Cocktail</p>
-        </div>
-        
-        <div class="text-center">
-          <h4 class="text-2xl mb-2">6:30 PM</h4>
-          <p class="uppercase tracking-widest text-lg">Dinner</p>
-        </div>
-        
-        <div class="text-center">
-          <h4 class="text-2xl mb-2">10:00 PM</h4>
-          <p class="uppercase tracking-widest text-lg">Dancing & Fireworks</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-schedule backgroundImage="/assets/images/couple-background.jpg"></app-schedule>
 
   <!-- Location -->
-  <section id="location" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl text-center mb-16">Location</h2>
-      
-      <div class="max-w-2xl mx-auto text-center mb-12">
-        <h3 class="text-2xl mb-3">Hacienda Los Olivos</h3>
-        <p class="text-lg mb-6">Carretera Nacional km 15, Monterrey, México</p>
-        
-        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-          <!-- Placeholder for map or venue image -->
-          <img src="/assets/images/venue.jpg" alt="Wedding Venue" class="w-full h-full object-cover">
-        </div>
-        
-        <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-8 inline-block">View on Maps</a>
-      </div>
-    </div>
-  </section>
+  <app-location title="UBICACIÓN" venueName="FIESTA VILLAHERMOSA SALON DE EVENTOS"
+    venueAddress="Av. Revolución 240, Tamulte de las Barrancas, 86150 Villahermosa, Tab."
+    venueImage="/assets/images/couple-location.jpg" mapsLinkText="VER EN GOOGLE MAPS"
+    mapsLink="https://maps.app.goo.gl/Gncemw5fMMjdPQWN8"></app-location>
 
-  <!-- Registry -->
+  <!-- Countdown -->
+  <app-countdown></app-countdown>
+
+   <!-- Registry
   <section id="registry" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-16">Registry</h2>
-      
+
       <p class="max-w-2xl mx-auto text-lg mb-12">
-        While your presence at our wedding is the greatest gift, if you wish to share in our joy through a gift, please visit our registry.
+        While your presence at our wedding is the greatest gift, if you wish to share in our joy through a gift, please
+        visit our registry.
       </p>
-      
+
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/amazon.svg" alt="Amazon" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Amazon</span>
         </a>
-        
+
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/liverpool.svg" alt="Liverpool" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Liverpool</span>
         </a>
-        
+
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/honeymoon.svg" alt="Honeymoon Fund" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Honeymoon Fund</span>
@@ -136,72 +53,45 @@
     </div>
   </section>
 
-  <!-- Dress Code -->
   <section class="section py-16 bg-white">
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-6">Dress Code</h2>
-      
+
       <p class="max-w-2xl mx-auto text-lg">
-        For this grand celebration of love, we kindly request that you embrace the elegance of the occasion by wearing formal attire.
+        For this grand celebration of love, we kindly request that you embrace the elegance of the occasion by wearing
+        formal attire.
       </p>
     </div>
-  </section>
+  </section> -->
 
   <!-- FAQs -->
   <section id="faqs" class="section py-20 bg-[var(--background-color)]">
-    <div class="container mx-auto px-6">
-      <h2 class="text-4xl text-center mb-16">FAQs</h2>
-      
+    <div class="container mx-auto">
+      <h2 class="text-4xl text-center mb-16">PREGUNTAS FRECUENTES</h2>
+
       <div class="max-w-3xl mx-auto">
         <div class="mb-8" *ngFor="let faq of faqs">
           <h3 class="text-xl mb-3 font-medium">{{faq.question}}</h3>
-          <p class="text-lg">{{faq.answer}}</p>
+          <p class="text-lg text-justify">{{faq.answer}}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RSVP -->
+<!--  RSVP
   <section id="rsvp" class="section py-20 bg-white">
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-16">RSVP</h2>
       <app-rsvp-form></app-rsvp-form>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Countdown -->
-  <section class="section py-20 bg-cover bg-center text-white" style="background-image: url('/assets/images/countdown-bg.jpg')">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl text-center mb-16">Let the countdown begin</h2>
-      
-      <div class="grid grid-cols-4 max-w-3xl mx-auto gap-6">
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.days}}</div>
-          <div class="uppercase tracking-wider text-sm">Days</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.hours}}</div>
-          <div class="uppercase tracking-wider text-sm">Hours</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.minutes}}</div>
-          <div class="uppercase tracking-wider text-sm">Minutes</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.seconds}}</div>
-          <div class="uppercase tracking-wider text-sm">Seconds</div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 </main>
 
 <footer class="py-8 text-center text-sm text-gray-500">
-  <div class="container mx-auto px-6">
-    <p>DESIGN BY EDGAR & MARÍA</p>
-    <p class="mt-2">© 2024 Wedding Invitation</p>
+  <div class="container mx-auto">
+    <p>DESIGN BY DAMARIS & EDGAR</p>
+    <p class="mt-2">© 2025 Wedding Invitation</p>
   </div>
 </footer>

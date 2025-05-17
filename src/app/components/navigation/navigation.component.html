@@ -1,0 +1,101 @@
+<header class="w-full z-50">
+  <!-- Normal Header (when mobile menu is closed) -->
+  <div *ngIf="!mobileMenuOpen" class="mx-auto py-5 md:py-6">
+    <!-- Desktop & Tablet Menu (md and larger) -->
+    <div class="hidden md:flex items-center w-full container mx-auto px-4 md:px-8">
+      <!-- Left Menu Items -->
+      <div class="flex-1 flex items-center justify-start">
+        <a 
+          *ngFor="let item of leftMenuItems; let i = index" 
+          class="nav-link text-sm uppercase tracking-wider text-gray-700 hover:text-black mr-8" 
+          [class.active]="isActive(item.link)"
+          (click)="navigateTo(item.link)"
+        >
+          {{ item.label }}
+        </a>
+      </div>
+      
+      <!-- Center Logo -->
+      <div class="logo font-normal flex-none mx-4 md:mx-8">
+        <a href="#" class="inline-block text-gray-800">{{ coupleNames }}</a>
+      </div>
+      
+      <!-- Right Menu Items -->
+      <div class="flex-1 flex items-center justify-end">
+        <a 
+          *ngFor="let item of getNonButtonItems(rightMenuItems)"
+          class="nav-link text-sm uppercase tracking-wider text-gray-700 hover:text-black ml-8" 
+          [class.active]="isActive(item.link)"
+          (click)="navigateTo(item.link)"
+        >
+          {{ item.label }}
+        </a>
+        <a
+          *ngFor="let item of getButtonItems(rightMenuItems)"
+          class="ml-8 rsvp-button text-sm uppercase tracking-wider"
+          [class.active]="isActive(item.link)"
+          (click)="navigateTo(item.link)"
+        >
+          {{ item.label }}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Header (Closed) -->
+    <div class="flex md:hidden items-center justify-between container mx-auto">
+      <!-- Empty space on left to balance layout -->
+      <div class="w-6"></div>
+      
+      <!-- Center Logo -->
+      <div class="logo font-normal text-center">
+        <a href="#" class="inline-block text-gray-800">{{ coupleNames }}</a>
+      </div>
+      
+      <!-- Mobile Menu Toggle Button (+ icon) -->
+      <button class="w-6 h-6 flex items-center justify-center" (click)="toggleMobileMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 menu-icon text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu Fullscreen (when open) -->
+  <div *ngIf="mobileMenuOpen" 
+      class="fixed inset-0 flex items-center justify-center bg-white z-50 animate-fadeIn"
+      (click)="closeMobileMenu()">
+      
+      <div class="container mx-auto px-4 py-8" (click)="$event.stopPropagation()">
+          <!-- Close button for mobile menu -->
+          <div class="flex justify-end mb-8">
+              <button (click)="closeMobileMenu()" 
+                    class="p-2 rounded-full border border-gray-300 hover:bg-gray-100 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+              </button>
+          </div>
+          
+          <!-- Mobile menu links -->
+          <div class="flex flex-col items-center space-y-6 text-xl">
+              <ng-container *ngFor="let item of allItems">
+                  <a *ngIf="!item.isButton" 
+                     [class.active]="isActive(item.link)"
+                     class="mobile-menu-item relative px-4 py-2 transition-all duration-300 text-gray-700 uppercase tracking-wide"
+                     (click)="navigateTo(item.link)">
+                      {{item.label}}
+                  </a>
+                  <a *ngIf="item.isButton" 
+                     [class.active]="isActive(item.link)"
+                     class="mobile-menu-item relative px-6 py-3 border border-gray-800 rounded-none transition-all duration-300 text-gray-800 uppercase tracking-wide"
+                     (click)="navigateTo(item.link)">
+                      {{item.label}}
+                  </a>
+              </ng-container>
+          </div>
+      </div>
+  </div>
+</header>
+
+<!-- Ya no necesitamos el espaciador porque el menú no es fijo -->
+<div class="h-20 md:h-24"></div>

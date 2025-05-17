@@ -1,0 +1,55 @@
+<div class="relative">
+  <app-navigation 
+    [coupleNames]="coupleNames"
+    [leftMenuItems]="leftMenuItems"
+    [rightMenuItems]="rightMenuItems">
+  </app-navigation>
+  
+  <section class="min-h-screen flex items-center justify-center bg-[#f9f8f6] pb-12 pt-0">
+    <div class="container mx-auto">
+      <!-- Sección principal de la invitación -->
+      <div class="wedding-invitation">
+        <!-- Hero section con todo integrado -->
+        <div class="hero-section relative mb-8">
+          <!-- Fecha superpuesta sobre las imágenes sin fondo -->
+          <div class="date-display">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-silk font-light tracking-wider no-bg">
+              {{ weddingDate }}
+            </h1>
+          </div>
+          
+          <!-- Imágenes -->
+          <div class="photos-container">
+            <!-- Foto izquierda: Pareja caminando -->
+            <div class="side-photo">
+              <div class="side-image-container">
+                <img [src]="sidePhotoRight" alt="Novios caminando" class="w-full grayscale">
+              </div>
+            </div>
+            
+            <!-- Foto central -->
+            <div class="center-photo">
+              <div class="center-image-container">
+                <img [src]="mainPhoto" alt="Pareja abrazándose" class="w-full grayscale">
+              </div>
+            </div>
+            
+            <!-- Foto derecha: Detalle del velo -->
+            <div class="side-photo">
+              <div class="side-image-container">
+                <img [src]="sidePhotoLeft" alt="Detalle del velo" class="w-full grayscale">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Texto de invitación -->
+        <div class="invitation-text text-center max-w-2xl mx-auto">
+          <p class="text-sm md:text-base uppercase tracking-widest font-light">
+            {{ description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

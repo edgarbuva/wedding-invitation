@@ -3,12 +3,37 @@
 /* Importar fuentes elegantes de Google */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
+/* Importar fuentes Silk Serif */
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Silk Serif';
+  src: url('/assets/fonts/Silk+Serif+SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --primary-color: #856D4D;  /* Dorado elegante */
-  --secondary-color: #4D7E74; /* Verde oscuro */
-  --background-color: #FDFAF5; /* Crema claro */
-  --text-color: #333333;
-  --accent-color: #D6AD60; /* Dorado más claro */
+  --primary-color: #333333;  /* Color principal para elementos activos */
+  --secondary-color: #888888; /* Color para elementos inactivos */
+  --background-color: #FAF9F6; /* Crema más claro */
+  --text-color: #333333; /* Negro para texto */
+  --accent-color: #D6AD60; /* Dorado para acentos */
 }
 
 body {
@@ -19,20 +44,58 @@ body {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .font-serif {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
 }
 
+/* Clase de utilidad para fuente serif */
+.font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Clase de utilidad para fuente Silk Serif */
+.font-silk {
+  font-family: 'Silk Serif', serif;
+}
+
+/* Clase de utilidad para fuente sans */
+.font-sans {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .container {
-  width: 100%;
-  max-width: 1200px;
+  width: 90%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  
+  @media (min-width: 768px) {
+    width: 90%;
+    padding: 0 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 85%;
+    padding: 0 2rem;
+  }
+  
+  @media (min-width: 1440px) {
+    width: 80%;
+    max-width: 1600px;
+  }
 }
 
 .section {
   padding: 4rem 0;
+  
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
 }
 
 /* Estilos de botones */
@@ -66,4 +129,31 @@ h1, h2, h3, h4, h5, h6 {
 .btn-outline:hover {
   background-color: var(--primary-color);
   color: white;
+}
+
+/* Manejo del scroll para el menú móvil */
+body.mobile-menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ajustes responsivos para el padding-top de las secciones */
+@media (max-width: 767px) {
+  main {
+    padding-top: 0; /* Eliminado el espacio superior en móviles */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+    padding-top: 0; /* Eliminado el espacio superior en tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding-top: 0; /* Eliminado el espacio superior en escritorio */
+  }
 }
