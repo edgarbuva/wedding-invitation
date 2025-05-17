@@ -1,57 +1,50 @@
 <main>
   <!-- Hero Section -->
-  <app-hero 
-    coupleNames="Damaris & Edgar"
-    weddingDate="14 • 07 • 2025"
-    description="ACOMPÁÑANOS EN NUESTRO VIAJE DE AMOR, ALEGRÍA Y FELICIDAD ETERNA."
-    rsvpLink="#rsvp"
-    rsvpButtonText="RSVP"
-    mainPhoto="/assets/images/couple-main.jpg"
-    sidePhotoLeft="/assets/images/couple-side-1.jpg"
-    sidePhotoRight="/assets/images/couple-side-2.jpg">
+  <app-hero coupleNames="DAMARIS & EDGAR" weddingDate="14 • 06 • 2025"
+    description="ACOMPÁÑANOS EN NUESTRO VIAJE DE AMOR, ALEGRÍA Y FELICIDAD ETERNA." rsvpLink="#rsvp"
+    rsvpButtonText="RSVP" mainPhoto="/assets/images/couple-main.jpg" sidePhotoLeft="/assets/images/couple-side-1.jpg"
+    sidePhotoRight="/assets/images/couple-side-2.jpg"
+    [leftMenuItems]="[
+      { label: 'ITINERARIO', link: '#schedule' },
+      { label: 'UBICACIÓN', link: '#location' }
+    ]"
+    [rightMenuItems]="[
+      { label: 'FAQs', link: '#faqs' }
+    ]">
   </app-hero>
-<!-- Schedule -->
+  <!-- Schedule -->
   <app-schedule backgroundImage="/assets/images/couple-background.jpg"></app-schedule>
 
   <!-- Location -->
-  <section id="location" class="section py-20 bg-white">
-    <div class="container mx-auto">
-      <h2 class="text-4xl text-center mb-16">Location</h2>
-      
-      <div class="max-w-2xl mx-auto text-center mb-12">
-        <h3 class="text-2xl mb-3">Hacienda Los Olivos</h3>
-        <p class="text-lg mb-6">Carretera Nacional km 15, Monterrey, México</p>
-        
-        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-          <!-- Placeholder for map or venue image -->
-          <img src="/assets/images/venue.jpg" alt="Wedding Venue" class="w-full h-full object-cover">
-        </div>
-        
-        <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-8 inline-block">View on Maps</a>
-      </div>
-    </div>
-  </section>
+  <app-location title="UBICACIÓN" venueName="FIESTA VILLAHERMOSA SALON DE EVENTOS"
+    venueAddress="Av. Revolución 240, Tamulte de las Barrancas, 86150 Villahermosa, Tab."
+    venueImage="/assets/images/couple-location.jpg" mapsLinkText="VER EN GOOGLE MAPS"
+    mapsLink="https://maps.app.goo.gl/Gncemw5fMMjdPQWN8"></app-location>
 
-  <!-- Registry -->
+  <!-- Countdown -->
+  <app-countdown></app-countdown>
+
+   <!-- Registry
   <section id="registry" class="section py-20 bg-[var(--background-color)]">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-16">Registry</h2>
-      
+
       <p class="max-w-2xl mx-auto text-lg mb-12">
-        While your presence at our wedding is the greatest gift, if you wish to share in our joy through a gift, please visit our registry.
+        While your presence at our wedding is the greatest gift, if you wish to share in our joy through a gift, please
+        visit our registry.
       </p>
-      
+
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/amazon.svg" alt="Amazon" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Amazon</span>
         </a>
-        
+
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/liverpool.svg" alt="Liverpool" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Liverpool</span>
         </a>
-        
+
         <a href="#" class="block p-8 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <img src="/assets/images/honeymoon.svg" alt="Honeymoon Fund" class="h-12 mx-auto mb-4">
           <span class="block mt-4 text-sm uppercase tracking-wider">Honeymoon Fund</span>
@@ -60,72 +53,45 @@
     </div>
   </section>
 
-  <!-- Dress Code -->
   <section class="section py-16 bg-white">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl text-center mb-6">Dress Code</h2>
-      
+
       <p class="max-w-2xl mx-auto text-lg">
-        For this grand celebration of love, we kindly request that you embrace the elegance of the occasion by wearing formal attire.
+        For this grand celebration of love, we kindly request that you embrace the elegance of the occasion by wearing
+        formal attire.
       </p>
     </div>
-  </section>
+  </section> -->
 
   <!-- FAQs -->
   <section id="faqs" class="section py-20 bg-[var(--background-color)]">
     <div class="container mx-auto">
-      <h2 class="text-4xl text-center mb-16">FAQs</h2>
-      
+      <h2 class="text-4xl text-center mb-16">PREGUNTAS FRECUENTES</h2>
+
       <div class="max-w-3xl mx-auto">
         <div class="mb-8" *ngFor="let faq of faqs">
           <h3 class="text-xl mb-3 font-medium">{{faq.question}}</h3>
-          <p class="text-lg">{{faq.answer}}</p>
+          <p class="text-lg text-justify">{{faq.answer}}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RSVP -->
+<!--  RSVP
   <section id="rsvp" class="section py-20 bg-white">
     <div class="container mx-auto">
       <h2 class="text-4xl text-center mb-16">RSVP</h2>
       <app-rsvp-form></app-rsvp-form>
     </div>
-  </section>
+  </section> -->
 
-  <!-- Countdown -->
-  <section class="section py-20 bg-cover bg-center text-white" style="background-image: url('/assets/images/countdown-bg.jpg')">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl text-center mb-16">Let the countdown begin</h2>
-      
-      <div class="grid grid-cols-4 max-w-3xl mx-auto gap-6">
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.days}}</div>
-          <div class="uppercase tracking-wider text-sm">Days</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.hours}}</div>
-          <div class="uppercase tracking-wider text-sm">Hours</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.minutes}}</div>
-          <div class="uppercase tracking-wider text-sm">Minutes</div>
-        </div>
-        
-        <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg">
-          <div class="text-4xl md:text-5xl font-light mb-2">{{countdown.seconds}}</div>
-          <div class="uppercase tracking-wider text-sm">Seconds</div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 </main>
 
 <footer class="py-8 text-center text-sm text-gray-500">
   <div class="container mx-auto">
-    <p>DESIGN BY EDGAR & MARÍA</p>
-    <p class="mt-2">© 2024 Wedding Invitation</p>
+    <p>DESIGN BY DAMARIS & EDGAR</p>
+    <p class="mt-2">© 2025 Wedding Invitation</p>
   </div>
 </footer>
