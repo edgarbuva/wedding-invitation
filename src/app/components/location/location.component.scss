@@ -1,0 +1,33 @@
+// Estilos para la sección completa
+:host {
+  display: block;
+  width: 100%;
+}
+
+.location-section {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: white;
+}
+
+// Estilos para el contenedor de la imagen del lugar
+.venue-image-container {
+  max-width: 600px;
+  margin: 0 auto;
+  
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+// Estilo personalizado para el botón
+.travel-button {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #333;
+  }
+}

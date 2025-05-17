@@ -68,26 +68,34 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   
   @media (min-width: 768px) {
-    width: 100%;
-    padding: 0 3rem;
+    width: 90%;
+    padding: 0 2rem;
   }
   
   @media (min-width: 1024px) {
-    width: 90%;
-    padding: 0 4rem;
+    width: 85%;
+    padding: 0 2rem;
   }
   
   @media (min-width: 1440px) {
-    width: 90%;
+    width: 80%;
     max-width: 1600px;
   }
 }
 
 .section {
-  padding: 2rem 0;
+  padding: 4rem 0;
+  
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 6rem 0;
+  }
 }
 
 /* Estilos de botones */

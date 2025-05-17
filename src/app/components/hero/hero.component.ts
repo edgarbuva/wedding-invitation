@@ -2,6 +2,12 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationComponent } from '../navigation/navigation.component';
 
+interface MenuItem {
+  label: string;
+  link: string;
+  isButton?: boolean;
+}
+
 @Component({
   selector: 'app-hero',
   standalone: true,
@@ -21,4 +27,8 @@ export class HeroComponent {
   @Input() mainPhoto: string = '/assets/images/couple-main.jpg';
   @Input() sidePhotoLeft: string = '/assets/images/couple-side-1.jpg';
   @Input() sidePhotoRight: string = '/assets/images/couple-side-2.jpg';
+  
+  // Menu inputs for navigation
+  @Input() leftMenuItems: MenuItem[] = [];
+  @Input() rightMenuItems: MenuItem[] = [];
 }

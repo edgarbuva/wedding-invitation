@@ -1,15 +1,20 @@
 /* Logo styling */
 .logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 500;
   text-align: center;
+  letter-spacing: 1px;
   
   a {
-    color: var(--text-color);
+    color: #333333;
     text-decoration: none;
+    font-size: 1.5rem;
+    font-family: serif;
     
     &:hover {
       opacity: 0.9;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
     }
   }
 }
@@ -29,27 +34,26 @@
   align-items: center;
   
   &:first-child {
-    justify-content: flex-end;
-    padding-right: 1rem;
+    justify-content: center;
   }
   
   &:last-child {
-    justify-content: flex-start;
-    padding-left: 1rem;
+    justify-content: center;
   }
 }
 
 /* Navigation links */
 .nav-link {
-  color: #888888;
+  color: #333333;
   transition: all 0.3s ease;
   letter-spacing: 2px;
   font-weight: 400;
   position: relative;
   text-decoration: none;
+  font-size: 0.8rem;
   
-  &:hover, &.active {
-    color: var(--text-color);
+  &:hover {
+    color: #000000;
   }
   
   &.active {
@@ -59,15 +63,28 @@
 
 /* RSVP button */
 .rsvp-button {
-  color: var(--text-color);
+  color: #333333;
   transition: all 0.3s ease;
   letter-spacing: 2px;
-  border-color: var(--text-color);
+  border-color: #333333;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #333333;
+  padding: 8px 24px;
   
   &:hover {
-    background-color: var(--text-color);
+    background-color: #333333;
     color: white;
   }
+}
+
+/* Menu items spacing */
+.mr-8 {
+  margin-right: 2rem;
+}
+
+.ml-8 {
+  margin-left: 2rem;
 }
 
 /* Mobile menu styling */
@@ -148,6 +165,11 @@
 
 button:hover .menu-icon {
   transform: rotate(90deg);
+}
+
+/* Custom header background and spacing */
+header {
+  background-color: rgba(249, 248, 246, 0.98);
 }
 
 /* Media queries for responsive adjustments */

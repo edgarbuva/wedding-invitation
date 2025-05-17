@@ -4,13 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { RsvpFormComponent } from './components/rsvp-form/rsvp-form.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
-
-interface Countdown {
-  days: string;
-  hours: string;
-  minutes: string;
-  seconds: string;
-}
+import { LocationComponent } from './components/location/location.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 interface FAQ {
   question: string;
@@ -20,95 +15,59 @@ interface FAQ {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RsvpFormComponent, HeroComponent, ScheduleComponent],
+  imports: [
+    CommonModule, 
+    RouterOutlet, 
+    RsvpFormComponent, 
+    HeroComponent, 
+    ScheduleComponent,
+    LocationComponent,
+    CountdownComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'wedding-invitation';
-  countdown: Countdown = {
-    days: '00',
-    hours: '00',
-    minutes: '00',
-    seconds: '00'
-  };
   
-  // Wedding date - July 14, 2025
-  weddingDate = new Date('2025-07-14T16:00:00');
+  // Wedding date - June 14, 2025
+  weddingDate = new Date('2025-06-14T16:00:00');
   
   // FAQs for the wedding
   faqs: FAQ[] = [
     {
-      question: 'What time should I arrive?',
-      answer: 'We recommend arriving 30 minutes before the ceremony, which starts promptly at 4:00 PM.'
+      question: '¿A qué hora debo llegar?',
+      answer: '¡Nos encantaría recibirte! Te sugerimos llegar unos 30 minutos antes de la ceremonia, que comenzará puntualmente a las 4:00 PM, así tendrás tiempo de saludar a otros invitados y acomodarte tranquilamente.'
     },
     {
-      question: 'Is there parking available at the venue?',
-      answer: 'Yes, there is complimentary valet parking available for all guests.'
+      question: '¿Hay estacionamiento disponible en el lugar?',
+      answer: 'El salón no cuenta con estacionamiento propio, pero no te preocupes. Te recomendamos usar servicios como Uber o DiDi, o quizás coordinar con otros invitados para compartir transporte. ¡Así todos podremos disfrutar plenamente de la celebración sin preocupaciones!'
     },
     {
-      question: 'Is the venue wheelchair accessible?',
-      answer: 'Yes, the venue is fully wheelchair accessible with ramps and elevators available.'
+      question: '¿Puedo llevar a un acompañante?',
+      answer: 'Nos encantaría poder recibir a más personas, pero debido al espacio limitado del salón, solo podemos acomodar a los invitados nombrados específicamente en tu invitación. ¡Gracias por tu comprensión!'
     },
     {
-      question: 'Can I bring a plus one?',
-      answer: 'Due to venue capacity, we can only accommodate the guests named on your invitation. Please indicate in your RSVP the exact number of guests attending.'
+      question: '¿Se permite la asistencia de niños?',
+      answer: 'Adoramos a los pequeños, pero hemos decidido que nuestra boda sea una celebración solo para adultos. Esperamos que esto les brinde a los papás una noche especial para relajarse y disfrutar. ¡Seguro te mereces una noche de diversión!'
     },
     {
-      question: 'Are children welcome?',
-      answer: 'We love your little ones, but we have decided to make our wedding an adults-only occasion. We hope this gives all parents an opportunity to enjoy the evening.'
+      question: '¿Cuándo debo confirmar mi asistencia?',
+      answer: '¡Tu presencia es muy importante para nosotros! Para poder organizarlo todo perfectamente, te pedimos confirmar tu asistencia con al menos 15 días de anticipación. Esto nos ayudará a que todo esté listo para recibirte y celebrar juntos este día tan especial.'
     },
     {
-      question: 'What should I do if I have dietary restrictions?',
-      answer: 'Please let us know of any dietary restrictions in the "Message" section of the RSVP form, and we will do our best to accommodate your needs.'
+      question: '¿Cuál es el código de vestimenta?',
+      answer: 'Nos encantaría que te unas a nuestra celebración con atuendo formal, pero no te preocupes, no es de etiqueta. ¡Lo importante es que te sientas cómodo y elegante para disfrutar de esta noche especial!'
     }
   ];
-  
-  private countdownInterval: any;
   
   constructor() {}
   
   ngOnInit() {
-    this.startCountdown();
+    // No countdown logic needed here anymore
   }
   
   ngOnDestroy() {
-    if (this.countdownInterval) {
-      clearInterval(this.countdownInterval);
-    }
-  }
-  
-  private startCountdown() {
-    const updateCountdown = () => {
-      const now = new Date();
-      const diff = this.weddingDate.getTime() - now.getTime();
-      
-      if (diff <= 0) {
-        this.countdown = {
-          days: '00',
-          hours: '00',
-          minutes: '00',
-          seconds: '00'
-        };
-        clearInterval(this.countdownInterval);
-        return;
-      }
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-      
-      this.countdown = {
-        days: days.toString().padStart(2, '0'),
-        hours: hours.toString().padStart(2, '0'),
-        minutes: minutes.toString().padStart(2, '0'),
-        seconds: seconds.toString().padStart(2, '0')
-      };
-    };
-    
-    // Update countdown immediately and then every second
-    updateCountdown();
-    this.countdownInterval = setInterval(updateCountdown, 1000);
+    // No countdown cleanup needed here anymore
   }
 }

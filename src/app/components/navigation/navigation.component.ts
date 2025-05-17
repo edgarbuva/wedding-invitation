@@ -17,13 +17,13 @@ interface MenuItem {
 export class NavigationComponent implements OnInit, OnChanges, OnDestroy {
   @Input() coupleNames: string = 'DAMARIS & EDGAR';
   @Input() leftMenuItems: MenuItem[] = [
-    { label: 'Travel & Stay', link: '#travel' },
-    { label: 'Our Story', link: '#our-story' },
-    { label: 'Registry', link: '#registry' }
+    { label: 'TRAVEL & STAY', link: '#travel' },
+    { label: 'OUR STORY', link: '#our-story' },
+    { label: 'REGISTRY', link: '#registry' }
   ];
   
   @Input() rightMenuItems: MenuItem[] = [
-    { label: 'FAQs', link: '#faqs' },
+    { label: 'FAQS', link: '#faqs' },
     { label: 'RSVP', link: '#rsvp', isButton: true }
   ];
 
@@ -105,9 +105,27 @@ export class NavigationComponent implements OnInit, OnChanges, OnDestroy {
   }
   
   navigateTo(link: string): void {
-    // Cerrar el menú móvil al navegar
-    this.closeMobileMenu();
-    
+    // Si el menú móvil está abierto, primero lo cerramos y luego navegamos
+    if (this.mobileMenuOpen) {
+      this.isClosing = true;
+      
+      // Esperamos a que termine la animación antes de hacer scroll
+      setTimeout(() => {
+        this.mobileMenuOpen = false;
+        this.isClosing = false;
+        this.renderer.removeClass(document.body, 'mobile-menu-open');
+        
+        // Hacer scroll después de que se cierre el menú
+        this.scrollToSection(link);
+      }, 300);
+    } else {
+      // Si el menú ya está cerrado, navegamos directamente
+      this.scrollToSection(link);
+    }
+  }
+  
+  // Método separado para el scroll
+  private scrollToSection(link: string): void {
     // Si es un enlace de anclaje, hacer scroll suave
     if (link.startsWith('#')) {
       const element = document.querySelector(link);
