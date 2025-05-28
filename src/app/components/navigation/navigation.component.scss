@@ -8,6 +8,7 @@
     text-decoration: none;
     font-size: 1.5rem;
     font-family: serif;
+    cursor: pointer;
     
     &:hover {
       opacity: 0.9;
@@ -51,6 +52,7 @@
   position: relative;
   text-decoration: none;
   font-size: 0.8rem;
+  cursor: pointer;
   
   &:hover {
     color: #000000;
@@ -71,6 +73,7 @@
   text-decoration: none;
   border: 1px solid #333333;
   padding: 8px 24px;
+  cursor: pointer;
   
   &:hover {
     background-color: #333333;
@@ -126,6 +129,7 @@
 .mobile-menu-item {
   opacity: 0;
   animation: fadeInUpItem 0.5s ease-out forwards;
+  cursor: pointer;
   
   &.active {
     font-weight: 600;
@@ -161,6 +165,10 @@
 /* Mobile menu toggle button */
 .menu-icon {
   transition: transform 0.3s ease;
+}
+
+button {
+  cursor: pointer;
 }
 
 button:hover .menu-icon {
