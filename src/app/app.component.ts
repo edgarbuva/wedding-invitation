@@ -53,7 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       question: '¿Cuándo debo confirmar mi asistencia?',
-      answer: '¡Tu presencia es muy importante para nosotros! Para poder organizarlo todo perfectamente, te pedimos confirmar tu asistencia con al menos 15 días de anticipación. Esto nos ayudará a que todo esté listo para recibirte y celebrar juntos este día tan especial.'
+      answer: '¡Tu presencia es muy importante para nosotros! Para poder organizarlo todo perfectamente, te pedimos confirmar tu asistencia hasta el 10 de junio. Esto nos ayudará a que todo esté listo para recibirte y celebrar juntos este día tan especial.'
     },
     {
       question: '¿Cuál es el código de vestimenta?',
